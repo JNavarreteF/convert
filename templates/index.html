@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Celsius to Fahrenheit Converter</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Celsius to Fahrenheit Converter</h1>
+      <form method="POST" action="{{ url_for('convert') }}">
+        <label for="temperature">Temperature:</label>
+        <input type="number" name="temperature" id="temperature" required />
+        <br />
+        <label for="conversion_type">Conversion Type:</label>
+        <select name="conversion_type" id="conversion_type">
+          <option value="celsius_to_fahrenheit">Celsius to Fahrenheit</option>
+          <option value="fahrenheit_to_celsius">Fahrenheit to Celsius</option>
+        </select>
+        <br />
+        <input type="submit" value="Convert" />
+      </form>
+      {% if converted_temperature %}
+      <p>{{ converted_temperature }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
